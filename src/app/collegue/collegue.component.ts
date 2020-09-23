@@ -8,13 +8,15 @@ import { CollegueMock } from '../mock/collegues.mock';
 })
 export class CollegueComponent implements OnInit {
   @Input()
-  col: any;
+  collegue: any;
+  update: boolean = false;
   constructor() { }
 
   ngOnInit(): void {
   }
 
   modifier() : void {
+    this.update = true;
     console.log("Modification du collègue");
   }
 

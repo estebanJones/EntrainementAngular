@@ -1,9 +1,12 @@
 <ul>
-    <li>Matricule: {{ col.matricule }}</li>
-    <li>Nom: {{ col.nom }}</li>
-    <li>Prénom: {{ col.prenom }}</li>
-    <li>Date de naissance: {{ col.dateDeNaissance }}</li>
-    <li>Email: {{ col.email }}</li>
+    <li>Matricule: {{ collegue.matricule }}</li>
+    <li>Nom: {{ collegue.nom | uppercase}}</li>
+    <li>Prénom: {{ collegue.prenom }}</li>
+    <li>Date de naissance: {{ collegue.dateDeNaissance | date : "dd/MM/yyyy"}} </li>
+    <li *ngIf="!update; else elseEmail">Email: {{ collegue.email }}</li>
+    <li *ngIf="!update; else elseBlock">Photo: {{ collegue.photoUrl }}</li>
+    <ng-template #elseBlock>Photo url: <input type="text" > </ng-template>
+    <ng-template #elseEmail> Email: <input type="text" > </ng-template>
     <button (click)="modifier()">Modifier</button>
     <button (click)="creer()">Créer</button>
 </ul>

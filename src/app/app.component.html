@@ -2,4 +2,10 @@
 <app-bonjour></app-bonjour>
 <app-bonjour-avec-prenom [prenom]="'Julien'"></app-bonjour-avec-prenom>
 <app-bonjour-avec-prenom [prenom]="'Martin'"></app-bonjour-avec-prenom>
-<app-collegue [col]="col"></app-collegue>
+<app-collegue [collegue]="col"></app-collegue>
+<app-administration-collegue [matriculeListe]="listMatricule"></app-administration-collegue>
+
+
+<!-- ERROR in src/app/app.component.html:6:30 - error NG8002: Can't bind to 'matriculeListe' since it isn't a known property of 'app-administration-collegue'.
+    1. If 'app-administration-collegue' is an Angular component and it has 'matriculeListe' input, then verify that it is part of this module.
+    2. If 'app-administration-collegue' is a Web Component then add 'CUSTOM_ELEMENTS_SCHEMA' to the '@NgModule.schemas' of this component to suppress this message. -->
