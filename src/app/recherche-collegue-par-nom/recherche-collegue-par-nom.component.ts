@@ -1,6 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { OuterSubscriber } from 'rxjs/internal/OuterSubscriber';
-
 @Component({
   selector: 'app-recherche-collegue-par-nom',
   templateUrl: './recherche-collegue-par-nom.component.html',
@@ -10,21 +8,20 @@ export class RechercheCollegueParNomComponent implements OnInit {
   @Input()
   listeMatricule: string[];
 
-  nomRechercher:string;
-
+  nomRechercher:string = "";
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  rechercherByNom() : void {
+  rechercherByNom(value: string) : string {
+    let resultat: string;
     this.listeMatricule.forEach(matricule => {
-      console.log("matricule -> " + matricule + " nomRechercher -> " + this.nomRechercher);
-      if(matricule === this.nomRechercher) {
-        console.log("Ce matricule existe");
-      } else {
-        console.log("Ce matricule n'existe pas !")
+      if(matricule === value) {
+       resultat = matricule;
       }
     });
+
+    return resultat != undefined ? resultat : "Aucun resultat trouvé";
   }
 }

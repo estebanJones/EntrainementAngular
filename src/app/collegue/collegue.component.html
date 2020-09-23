@@ -7,6 +7,7 @@
     <li *ngIf="!update; else elseBlock">Photo: {{ collegue.photoUrl }}</li>
     <ng-template #elseBlock>Photo url: <input type="text" > </ng-template>
     <ng-template #elseEmail> Email: <input type="text" > </ng-template>
-    <button (click)="modifier()">Modifier</button>
-    <button (click)="creer()">Créer</button>
+    <button *ngIf="!update; else elseValid" (click)="modifier()">Modifier</button>
+    <button *ngIf="!update;" (click)="creer()">Créer</button>
+    <ng-template #elseValid> <button>Valider</button></ng-template>
 </ul>
